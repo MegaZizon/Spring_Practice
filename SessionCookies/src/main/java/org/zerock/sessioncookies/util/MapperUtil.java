@@ -1,4 +1,4 @@
-package util;
+package org.zerock.sessioncookies.util;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

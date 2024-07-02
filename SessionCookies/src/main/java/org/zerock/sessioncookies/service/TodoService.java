@@ -1,13 +1,12 @@
-package org.zerock.jdbcex.service;
+package org.zerock.sessioncookies.service;
 
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
-import org.zerock.jdbcex.dao.TodoDAO;
-import org.zerock.jdbcex.domain.TodoVO;
-import org.zerock.jdbcex.dto.TodoDTO;
-import org.zerock.jdbcex.util.MapperUtil;
+import org.zerock.sessioncookies.dao.TodoDAO;
+import org.zerock.sessioncookies.domain.TodoVO;
+import org.zerock.sessioncookies.dto.TodoDTO;
+import org.zerock.sessioncookies.util.MapperUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
