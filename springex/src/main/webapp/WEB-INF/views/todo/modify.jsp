@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -36,28 +35,38 @@
                     Featured
                 </div>
                 <div class="card-body">
-                    <form action="/todo/register" method="post">
+                    <form action="/todo/modify" method="post">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >TNO</span>
+                            <input type="text" class="form-control" name="tno" value=<c:out value="${dto.tno}"></c:out> readonly>
+                        </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Title</span>
-                            <input type="text" class="form-control" placeholder="Title" name="title">
+                            <input type="text" class="form-control" name="title" value=<c:out value="${dto.title}"></c:out> >
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" >DueDate</span>
-                            <input type="date" class="form-control" placeholder="Writer" name="dueDate">
+                            <input type="date" class="form-control" name="dueDate" value=<c:out value="${dto.dueDate}"></c:out> >
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Writer</span>
-                            <input type="text" class="form-control" placeholder="Writer" name="writer">
+                            <input type="text" class="form-control" name="writer" value=<c:out value="${dto.writer}"></c:out> readonly>
                         </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                Finished &nbsp;
+                            </label>
+                            <input class="form-check-input" type="checkbox" name="finished" ${dto.finished?"checked":""} >
+                        </div>
+
                         <div class="my-4">
                             <div class="float-end">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
+                                <button type="button" class="btn btn-danger">Remove</button>
+                                <button type="button" class="btn btn-primary">Modify</button>
+                                <button type="button" class="btn btn-secondary">List</button>
                             </div>
                         </div>
-
                     </form>
-
                 </div>
             </div>
         </div>
@@ -72,7 +81,35 @@
 </div>
 
 
+
+
 <script>
+    document.querySelector(".btn-primary").addEventListener("click",function (e){
+        e.preventDefault()
+        e.stopPropagation()
+
+        formObj.action="/todo/modify"
+        formObj.method="post"
+
+        formObj.submit()
+    },false)
+
+    document.querySelector(".btn-secondary").addEventListener("click",function(e){
+        self.location = "/todo/list";
+    },false)
+
+    const formObj = document.querySelector("form")
+
+    document.querySelector(".btn-danger").addEventListener("click",function (e){
+        e.preventDefault()
+        e.stopPropagation()
+
+        formObj.action="/todo/remove"
+        formObj.method="post"
+
+        formObj.submit()
+    },false);
+
     const serverValidResult = {}
     <c:forEach items="${errors}" var="error">
 
@@ -81,6 +118,7 @@
     </c:forEach>
 
     console.log(serverValidResult)
+
 </script>
 
 

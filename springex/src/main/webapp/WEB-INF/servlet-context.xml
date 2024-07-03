@@ -9,6 +9,15 @@
         <property name="prefix" value="/WEB-INF/views/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
-
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="org.zerock.springex.controller.fomatter.LocalDateFomatter"/>
+                <bean class="org.zerock.springex.controller.fomatter.CheckboxFormatter"/>
+            </set>
+        </property>
+    </bean>
     <context:component-scan base-package="org.zerock.springex.controller"/>
+
+
 </beans>
