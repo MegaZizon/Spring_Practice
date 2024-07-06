@@ -1,6 +1,6 @@
 package org.zerock.springbootstart.controller;
 
-import groovy.lang.GString;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -15,6 +15,9 @@ import org.zerock.springbootstart.dto.BoardDTO;
 import org.zerock.springbootstart.dto.PageRequestDTO;
 import org.zerock.springbootstart.dto.PageResponseDTO;
 import org.zerock.springbootstart.service.BoardService;
+
+
+
 
 @Controller
 @RequestMapping("/board")
