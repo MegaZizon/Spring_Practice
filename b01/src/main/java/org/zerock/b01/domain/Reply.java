@@ -6,16 +6,16 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name="Reply",indexes={@Index(name="idx_reply_board_bno",columnList = "board_bno")})
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(exclude = "board")
-@Table(name="Reply",indexes={@Index(name="idx_reply_board_bno",columnList = "board_bno")})
-public class Reply extends BaseEntity {
+public class Reply extends BaseEntity{
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rno;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -24,4 +24,9 @@ public class Reply extends BaseEntity {
     private String replyText;
 
     private String replyer;
+
+    public void changeText(String text){
+        this.replyText = text;
+    }
+
 }
