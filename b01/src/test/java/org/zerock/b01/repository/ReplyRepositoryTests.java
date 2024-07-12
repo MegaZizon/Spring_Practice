@@ -21,7 +21,7 @@ public class ReplyRepositoryTests {
 
     @Test
     public void testInsert(){
-        Long bno= 1555L;
+        Long bno= 1L;
 
         Board board = Board.builder().bno(bno).build();
 
@@ -36,7 +36,7 @@ public class ReplyRepositoryTests {
 
     @Test
     public void testBoardReplies(){
-        Long bno= 116L;
+        Long bno= 1L;
         Pageable pageable = PageRequest.of(0,10, Sort.by("rno").descending());
         Page<Reply> result = replyRepository.listOfBoard(bno, pageable);
 

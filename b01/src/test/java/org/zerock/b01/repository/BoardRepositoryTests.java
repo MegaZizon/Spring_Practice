@@ -146,9 +146,9 @@ public class BoardRepositoryTests {
     public void testSearchReplyCount(){
         String[] types = {"t","c","w"};
 
-        String keyword = "v443";
+        String keyword = "3";
 
-        Pageable pageable = PageRequest.of(0,10, Sort.by("bno").descending());
+        Pageable pageable = PageRequest.of(0,30, Sort.by("bno").descending());
 
         Page<BoardListReplyCountDTO> result = boardRepository.searchWithReplyCount(types, keyword, pageable );
 
