@@ -78,8 +78,8 @@ public class UpDownController {
         HttpHeaders headers = new HttpHeaders();
 
         try{
-            headers.add("Content-Type",Files.probeContentType(resource.getFile().toPath()));
-        }catch (Exception e){
+            headers.add("Content-Type", Files.probeContentType( resource.getFile().toPath() ));
+        } catch(Exception e){
             return ResponseEntity.internalServerError().build();
         }
         return ResponseEntity.ok().headers(headers).body(resource);
@@ -88,6 +88,9 @@ public class UpDownController {
     @ApiOperation(value="remove 파일",notes = "DELETE 방식으로 파일 삭제")
     @DeleteMapping("/remove/{fileName}")
     public Map<String,Boolean> removeFile(@PathVariable String fileName){
+        log.info("RESTAPI-----------------------------------------------------------------");
+        log.info(fileName);
+
         Resource resource = new FileSystemResource(uploadPath+File.separator+fileName);
 
         String resourceName = resource.getFilename();
