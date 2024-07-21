@@ -47,7 +47,7 @@ public class CustomSecurityConfig {
                 .sessionManagement(sessionManagementConfigurer ->
                         sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 );
-        return http.build(); 
+        return http.build();
 
     }
 }
