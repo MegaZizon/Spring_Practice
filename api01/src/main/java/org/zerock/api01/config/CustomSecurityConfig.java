@@ -42,11 +42,11 @@ public class CustomSecurityConfig {
 
         log.info("------------configure-------------------");
 
-        http
-                .csrf(csrfConfigurer -> csrfConfigurer.disable())
-                .sessionManagement(sessionManagementConfigurer ->
-                        sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                );
+        http.csrf(csrfConfigurer -> csrfConfigurer.disable())
+            .sessionManagement(sessionManagementConfigurer ->
+             sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+             );
+
         return http.build();
 
     }
